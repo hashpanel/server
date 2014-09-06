@@ -23,7 +23,6 @@ module.exports.session = {
   ***************************************************************************/
   secret: '9d2e506066c79264563d76fa8b23ba11',
 
-
   /***************************************************************************
   *                                                                          *
   * Set the session cookie expire time The maxAge is set by milliseconds,    *
@@ -41,8 +40,6 @@ module.exports.session = {
   * session store that can be shared across multiple Sails.js servers        *
   ***************************************************************************/
 
-  adapter: 'redis',
-  url: process.env.REDISCLOUD_URL,
   // host: 'localhost',
   // port: 6379,
   // ttl: <redis session TTL in seconds>,

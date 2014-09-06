@@ -25,6 +25,11 @@ module.exports = {
     }
   },
 
+  session: {
+    adapter: 'redis',
+    url: process.env.REDISCLOUD_URL,
+  },
+
   port: process.env.PORT,
 
   log: {
