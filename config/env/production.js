@@ -13,7 +13,8 @@
 module.exports = {
 
   models: {
-    connection: 'herokuPostgres'
+    connection: 'herokuPostgres',
+    migrate: 'alter'
   },
 
   connections: {
