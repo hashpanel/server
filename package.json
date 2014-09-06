@@ -27,6 +27,9 @@
     "sails-postgresql": "^0.10.8",
     "sails-redis": "^0.10.2"
   },
+  "engines": {
+    "node": "^0.10.31"
+  },
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
