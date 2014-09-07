@@ -25,13 +25,17 @@ module.exports = {
     },
     sessionCache: {
       adapter: 'sails-redis',
-      url: process.env.REDISCLOUD_URL
+      host: process.env.REDIS_HOST,
+      port: process.env.REDIS_PORT,
+      password: process.env.REDIS_PASSWORD
     }
   },
 
   session: {
     adapter: 'redis',
-    url: process.env.REDISCLOUD_URL,
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASSWORD
   },
 
   port: process.env.PORT,
