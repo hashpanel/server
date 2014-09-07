@@ -20,6 +20,10 @@ module.exports = {
     },
     meta: {
       type: 'json'
+    },
+    passports: {
+      collection: 'Passport',
+      via: 'user'
     }
   }
 };
