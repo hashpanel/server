@@ -27,7 +27,7 @@ module.exports = {
     },
     sessionCache: {
       adapter: 'sails-redis',
-      host: url.parse(process.env.REDISCLOUD_URL).host,
+      host: url.parse(process.env.REDISCLOUD_URL).hostname,
       port: url.parse(process.env.REDISCLOUD_URL).port,
       passport: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
       options: {
@@ -38,7 +38,7 @@ module.exports = {
 
   session: {
     adapter: 'redis',
-    host: url.parse(process.env.REDISCLOUD_URL).host,
+    host: url.parse(process.env.REDISCLOUD_URL).hostname,
     port: url.parse(process.env.REDISCLOUD_URL).port,
     passport: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
     options: {
