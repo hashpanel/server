@@ -29,7 +29,7 @@ module.exports = {
       adapter: 'sails-redis',
       host: url.parse(process.env.REDISCLOUD_URL).hostname,
       port: url.parse(process.env.REDISCLOUD_URL).port,
-      passport: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
+      password: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
       options: {
         no_ready_check: true
       }
@@ -40,7 +40,7 @@ module.exports = {
     adapter: 'redis',
     host: url.parse(process.env.REDISCLOUD_URL).hostname,
     port: url.parse(process.env.REDISCLOUD_URL).port,
-    passport: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
+    password: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
     options: {
       no_ready_check: true
     }
