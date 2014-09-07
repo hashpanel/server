@@ -27,9 +27,10 @@ module.exports = {
     },
     sessionCache: {
       adapter: 'sails-redis',
-      host: url.parse(process.env.REDISCLOUD_URL).hostname,
-      port: url.parse(process.env.REDISCLOUD_URL).port,
-      password: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
+      host: url.parse(process.env.REDISTOGO_URL).hostname,
+      port: url.parse(process.env.REDISTOGO_URL).port,
+      db: url.parse(process.env.REDISTOGO_URL).auth.split(":")[0],
+      password: url.parse(process.env.REDISTOGO_URL).auth.split(":")[1],
       options: {
         no_ready_check: true
       }
@@ -38,9 +39,10 @@ module.exports = {
 
   session: {
     adapter: 'redis',
-    host: url.parse(process.env.REDISCLOUD_URL).hostname,
-    port: url.parse(process.env.REDISCLOUD_URL).port,
-    password: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
+    host: url.parse(process.env.REDISTOGO_URL).hostname,
+    port: url.parse(process.env.REDISTOGO_URL).port,
+    db: url.parse(process.env.REDISTOGO_URL).auth.split(":")[0],
+    password: url.parse(process.env.REDISTOGO_URL).auth.split(":")[1],
     options: {
       no_ready_check: true
     }
