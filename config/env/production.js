@@ -10,6 +10,8 @@
  *
  */
 
+var url = require('url');
+
 module.exports = {
 
   models: {
@@ -25,17 +27,23 @@ module.exports = {
     },
     sessionCache: {
       adapter: 'sails-redis',
-      host: process.env.REDIS_HOST,
-      port: process.env.REDIS_PORT,
-      password: process.env.REDIS_PASSWORD
+      host: url.parse(process.env.REDISCLOUD_URL).host,
+      port: url.parse(process.env.REDISCLOUD_URL).port,
+      passport: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
+      options: {
+        no_ready_check: true
+      }
     }
   },
 
   session: {
     adapter: 'redis',
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-    password: process.env.REDIS_PASSWORD
+    host: url.parse(process.env.REDISCLOUD_URL).host,
+    port: url.parse(process.env.REDISCLOUD_URL).port,
+    passport: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
+    options: {
+      no_ready_check: true
+    }
   },
 
   port: process.env.PORT,
