@@ -20,6 +20,9 @@ module.exports = {
   connections: {
     localDiskDb: {
       adapter: 'sails-disk'
+    },
+    sessionCache: {
+      adapter: 'sails-disk'
     }
   },
 

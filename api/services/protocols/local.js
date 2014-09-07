@@ -129,8 +129,8 @@ exports.connect = function (req, res, next) {
  * @param {Function} next
  */
 exports.login = function (req, identifier, password, next) {
-  var isEmail = validator.isEmail(identifier)
-    , query   = {};
+  var isEmail = (identifier || '').contains('@'),
+    query   = {};
 
   if (isEmail) {
     query.email = identifier;

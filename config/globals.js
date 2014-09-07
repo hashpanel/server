@@ -61,3 +61,5 @@ module.exports.globals = {
 
 	// models: true
 };
+
+global.Promise = require('bluebird');

@@ -9,10 +9,27 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 
-module.exports.bootstrap = function(cb) {
+var SailsBackbone = require('sails-backbone');
+
+module.exports.bootstrap = function (next) {
   sails.services.passport.loadStrategies();
 
-  // It's very important to trigger this callback method when you are finished
-  // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+  BackboneModel.count().then(function (count) {
+    if (count > 0) return next();
+    createBackboneModels(next);
+  });
 };
+
+function createBackboneModels (next) {
+  var create = _.map(SailsBackbone.generate(sails, require('../package')).models, function (model, index) {
+    model.index = index;
+    return BackboneModel.create(model);
+  });
+
+  Promise
+    .all(create)
+    .then(function (models) {
+      next();
+    })
+    .catch(next);
+}

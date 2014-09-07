@@ -22,6 +22,10 @@ module.exports = {
       adapter: 'sails-postgresql',
       url: process.env.DATABASE_URL,
       ssl: true
+    },
+    sessionCache: {
+      adapter: 'sails-redis',
+      url: process.env.REDISCLOUD_URL
     }
   },
 
