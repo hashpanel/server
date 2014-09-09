@@ -1,6 +1,3 @@
+var rc = require('rc');
 require('dotenv').load();
-require('sails').lift({ 
-  hooks: {
-    grunt: false
-  }
-});
+require('sails').lift(rc('sails'));
