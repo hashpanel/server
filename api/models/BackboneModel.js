@@ -1,19 +1,9 @@
 /**
-* BackboneModel.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * BackboneModel
+ */
+var _ = require('lodash');
 
-module.exports = {
-  autoPK: false,
-  connection: 'sessionCache',
-  schema: false,
-
-  attributes: {
-    name: {
-      primaryKey: true
-    }
-  }
-};
-
+_.merge(exports, require('sails-backbone/api/models/BackboneModel'));
+_.merge(exports, {
+  connection: 'sessionCache'
+});
