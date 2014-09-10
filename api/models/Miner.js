@@ -32,8 +32,8 @@ module.exports = {
     endService: {
       type: 'date'
     },
-    channel: {
-      model: 'Channel'
+    connection: {
+      model: 'MinerConnection'
     },
     site: {
       model: 'Site'
