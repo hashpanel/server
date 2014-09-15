@@ -13,7 +13,8 @@ module.exports = {
       notNull: true
     },
     miners: {
-      collection: 'Miner'
+      collection: 'Miner',
+      via: 'group'
     }
   }
 };

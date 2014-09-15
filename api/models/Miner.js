@@ -40,6 +40,9 @@ module.exports = {
     },
     group: {
       model: 'Group'
+    },
+    owner: {
+      model: 'User'
     }
   }
 };

@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var _super = require('sails-auth/api/services/protocols/openid.js');
+var _super = require('sails-permissions/api/models/Permission.js');
 
 _.merge(exports, _super);
 _.merge(exports, {

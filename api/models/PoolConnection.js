@@ -10,11 +10,7 @@ module.exports = {
   attributes: {
     pool: {
       model: 'Pool'
-    },
-    user: {
-      model: 'User'
     }
-
   }
 };
 

@@ -1,30 +1,18 @@
-/**
-* User.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+var _ = require('lodash');
+var _super = require('sails-permissions/api/models/User.js');
 
-module.exports = {
+_.merge(exports, _super);
+_.merge(exports, {
 
-  attributes: {
-    username: {
-      type: 'string'
-    },
-    email: {
-      type: 'string',
-      email: true
-    },
-    miners: {
-      collection: 'Miner'
-    },
-    meta: {
-      type: 'json'
-    },
-    passports: {
-      collection: 'Passport',
-      via: 'user'
-    }
-  }
-};
+  // Extend with custom logic here by adding additional fields, methods, etc.
 
+  /**
+   * For example:
+   *
+   * foo: function (bar) {
+   *   bar.x = 1;
+   *   bar.y = 2;
+   *   return _super.foo(bar);
+   * }
+   */
+});

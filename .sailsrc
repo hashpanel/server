@@ -4,7 +4,8 @@
   },
   "generators": {
     "modules": {
-      "backbone-api": "sails-generate-backbone-api"
+      "backbone-api": "sails-backbone",
+      "permissions-api": "sails-permissions"
     }
   }
 }
