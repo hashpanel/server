@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - '0.10'
+  - '0.11'
+
+notifications:
+  email: false
+
+deploy:
+  provider: npm
+  email: me@traviswebb.com
+  api_key:
+    secure: BYKcoMAKyRLFHUYcydWH5FIxLxAP5IoVUJjxcm8DhwwdSmlvg5YQxgp7V8qNt+GiLM6VYaNCYH+4BUkIm+sk6sv0nPugesMA5ZNB1sblaO2cbOdqMmvHJyIzxu2fq3TyB+zfAGkcqTtgzN/MLRXogwDdQzcl9OOeh5SIji3W5SM=
+  on:
+    tags: true
+    repo: hashware/api
+    all_branches: true
