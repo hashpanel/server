@@ -1,10 +1,11 @@
 {
-  "name": "hashware",
+  "name": "hashware-api",
   "version": "0.1.0",
-  "description": "",
+  "description": "Backend REST API for hashpanel.io",
   "keywords": [
     "cgminer",
     "bitcoin",
+    "remote",
     "api",
     "miner",
     "pool",
@@ -39,10 +40,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tjwebb/hashware.git"
+    "url": "git://github.com/hashware/api.git"
   },
-  "author": "tjwebb",
-  "license": "MPL-2.0",
+  "author": "Travis Webb <me@traviswebb.com>",
+  "license": "MIT",
   "devDependencies": {
     "dotenv": "^0.4.0"
   }
