@@ -1,10 +1,15 @@
+// api/services/ModelService.js
+
 var _ = require('lodash');
-var _super = require('sails-permissions/api/services/ModelService.js');
+var _super = require('sails-permissions/api/services/ModelService');
 
-_.merge(exports, _super);
-_.merge(exports, {
+function ModelService () { }
 
-  // Extend with custom logic here by adding additional fields, methods, etc.
+ModelService.prototype = Object.create(_super);
+_.extend(ModelService.prototype, {
+
+  // Extend with custom logic here by adding additional fields and methods,
+  // and/or overriding methods in the superclass.
 
   /**
    * For example:
@@ -12,7 +17,9 @@ _.merge(exports, {
    * foo: function (bar) {
    *   bar.x = 1;
    *   bar.y = 2;
-   *   return _super.foo(bar);
+   *   return _super.foo.call(this, bar);
    * }
    */
 });
+
+module.exports = new ModelService();

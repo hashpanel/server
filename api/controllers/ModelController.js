@@ -1,5 +1,6 @@
+
 var _ = require('lodash');
-var _super = require('sails-permissions/api/controllers/ModelController.js');
+var _super = require('sails-permissions/api/controllers/ModelController');
 
 _.merge(exports, _super);
 _.merge(exports, {

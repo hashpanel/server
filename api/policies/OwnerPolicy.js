@@ -1,5 +1,6 @@
+
 var _ = require('lodash');
-var _super = require('sails-permissions/api/policies/OwnerPolicy.js');
+var _super = require('sails-permissions/api/policies/OwnerPolicy');
 
 _.merge(exports, _super);
 _.merge(exports, {
