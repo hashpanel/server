@@ -1,3 +1,4 @@
+// config/passport.js
 
 var _ = require('lodash');
 var _super = require('sails-auth/config/passport');
