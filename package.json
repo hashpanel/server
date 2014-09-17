@@ -20,7 +20,7 @@
     "lodash": "^2.4.1",
     "rc": "^0.5.1",
     "sails": "~0.10.5",
-    "sails-auth": "0.0.0",
+    "sails-auth": "^0.10.0",
     "sails-backbone": "^1.0",
     "sails-postgresql": "^0.10.8",
     "sails-redis": "^0.10.2"
