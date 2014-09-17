@@ -46,6 +46,7 @@
   "author": "Travis Webb <me@traviswebb.com>",
   "license": "MIT",
   "devDependencies": {
+    "mocha": "^1.21.4",
     "sails-disk": "~0.10.0"
   }
 }
