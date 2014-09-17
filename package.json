@@ -21,10 +21,17 @@
     "rc": "^0.5.1",
     "sails": "~0.10.5",
     "sails-backbone": "^1.0",
-    "sails-disk": "~0.10.0",
     "sails-postgresql": "^0.10.8",
     "sails-redis": "^0.10.2"
   },
+  "bundledDependencies": [
+    "bluebird",
+    "connect-redis",
+    "dotenv",
+    "include-all",
+    "lodash",
+    "rc"
+  ],
   "engines": {
     "node": "^0.10.31"
   },
@@ -39,6 +46,6 @@
   "author": "Travis Webb <me@traviswebb.com>",
   "license": "MIT",
   "devDependencies": {
-    "dotenv": "^0.4.0"
+    "sails-disk": "~0.10.0"
   }
 }
