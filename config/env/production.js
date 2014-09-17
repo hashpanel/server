@@ -26,7 +26,7 @@ module.exports = {
       ssl: true
     },
     sessionCache: {
-      adapter: 'sails-disk',
+      adapter: 'sails-redis',
       host: url.parse(process.env.REDISCLOUD_URL).hostname,
       port: url.parse(process.env.REDISCLOUD_URL).port,
       db: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[0],
