@@ -34,7 +34,7 @@
     "rc"
   ],
   "engines": {
-    "node": "^0.10.31"
+    "node": "^0.10.32"
   },
   "scripts": {
     "debug": "node debug app.js",
