@@ -51,5 +51,11 @@ module.exports = {
 
   log: {
     level: 'info'
+  },
+
+  permissions: {
+    adminEmail: 'admin@hashpanel.io',
+    adminPassword: process.env.hashpanel_admin_password
+
   }
 };

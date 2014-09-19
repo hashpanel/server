@@ -26,6 +26,11 @@ module.exports = {
     }
   },
 
+  permissions: {
+    adminEmail: 'admin@hashpanel.io',
+    adminPassword: 'admin123'
+  },
+
   port: 1337,
 
   log: {

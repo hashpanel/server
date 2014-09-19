@@ -22,7 +22,7 @@
     "sails": "~0.10.5",
     "sails-auth": "^0.10.0",
     "sails-backbone": "^1.0",
-    "sails-permissions": "^0.10.5",
+    "sails-permissions": "^0.10.8",
     "sails-postgresql": "git://github.com/tjwebb/sails-postgresql",
     "sails-redis": "^0.10.2"
   },
