@@ -1,3 +1,4 @@
+// api/policies/ModelPolicy.js
 
 var _ = require('lodash');
 var _super = require('sails-permissions/api/policies/ModelPolicy');

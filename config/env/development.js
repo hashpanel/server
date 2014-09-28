@@ -15,7 +15,7 @@ var url = require('url');
 module.exports = {
 
   models: {
-    connection: 'herokuPostgres',
+    connection: 'localDiskDb',
     migrate: 'drop'
   },
 
@@ -55,6 +55,6 @@ module.exports = {
 
   permissions: {
     adminEmail: 'admin@hashpanel.io',
-    adminPassword: process.env.hashpanel_admin_password
+    adminPassword: 'admin1234'
   }
 };

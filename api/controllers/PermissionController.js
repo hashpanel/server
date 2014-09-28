@@ -1,3 +1,4 @@
+// api/controllers/PermissionController.js
 
 var _ = require('lodash');
 var _super = require('sails-permissions/api/controllers/PermissionController');
