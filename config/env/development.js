@@ -15,42 +15,42 @@ var url = require('url');
 module.exports = {
 
   models: {
-    connection: 'localDiskDb',
+    connection: 'localPostgres',
     migrate: 'drop'
   },
 
   connections: {
-    herokuPostgres: {
+    localPostgres: {
       adapter: 'sails-postgresql',
       url: process.env.DATABASE_URL,
       ssl: true
     },
     sessionCache: {
       adapter: 'sails-redis',
-      host: url.parse(process.env.REDISCLOUD_URL).hostname,
-      port: url.parse(process.env.REDISCLOUD_URL).port,
-      db: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[0],
-      pass: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1]
+      host: url.parse(process.env.REDIS_URL).hostname,
+      port: url.parse(process.env.REDIS_URL).port,
+      //db: url.parse(process.env.REDIS_URL).auth.split(":")[0],
+      //pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
     }
   },
 
   session: {
     adapter: 'redis',
-    host: url.parse(process.env.REDISCLOUD_URL).hostname,
-    port: url.parse(process.env.REDISCLOUD_URL).port,
-    pass: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1]
+    host: url.parse(process.env.REDIS_URL).hostname,
+    port: url.parse(process.env.REDIS_URL).port,
+    //pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
   },
 
   sockets: {
     adapter: 'redis',
-    host: url.parse(process.env.REDISCLOUD_URL).hostname,
-    port: url.parse(process.env.REDISCLOUD_URL).port,
-    pass: url.parse(process.env.REDISCLOUD_URL).auth.split(":")[1],
+    host: url.parse(process.env.REDIS_URL).hostname,
+    port: url.parse(process.env.REDIS_URL).port,
+    //pass: url.parse(process.env.REDIS_URL).auth.split(":")[1],
   },
-  port: process.env.PORT,
+  port: 1337,
 
   log: {
-    level: 'info'
+    level: 'debug'
   },
 
   permissions: {
