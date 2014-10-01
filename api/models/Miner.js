@@ -12,7 +12,7 @@ module.exports = {
       type: 'string',
       notNull: true
     },
-    model: {
+    device: {
       type: 'string'
     },
     hashRate: {
@@ -43,6 +43,14 @@ module.exports = {
     },
     owner: {
       model: 'User'
+    },
+    history: {
+      collection: 'MinerState',
+      via: 'miner'
+    },
+    pollInterval: {
+      type: 'integer',
+      defaultsTo: 60
     }
   }
 };
