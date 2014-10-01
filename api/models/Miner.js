@@ -44,6 +44,9 @@ module.exports = {
     owner: {
       model: 'User'
     },
+    state: {
+      model: 'MinerState'
+    },
     history: {
       collection: 'MinerState',
       via: 'miner'

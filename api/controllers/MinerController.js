@@ -14,7 +14,7 @@ module.exports = {
     var id = req.params.id;
 
     Miner
-      .find(req.params.id)
+      .find(req.params)
       .populate('connection')
       .then(function (miner) {
         return MinerService.update(miner);

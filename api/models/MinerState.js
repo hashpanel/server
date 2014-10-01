@@ -23,6 +23,21 @@ module.exports = {
     miner: {
       model: 'Miner'
     }
+  },
+
+  /**
+   * Update the current 'state' property of the associated Miner
+   */
+  afterCreate: function (state, next) {
+    Miner.find(state.miner)
+      .then(function (miner) {
+        miner.state = state;
+        return miner.save();
+      })
+      .then(function (miner) {
+        next();
+      })
+      .catch(next);
   }
 };
 
