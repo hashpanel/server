@@ -11,7 +11,13 @@ module.exports = {
     error: {
       type: 'json'
     },
+    version: {
+      type: 'string'
+    },
     summary: {
+      type: 'json'
+    },
+    pools: {
       type: 'json'
     },
     miner: {

@@ -8,15 +8,18 @@ function update (miner) {
   
   return cgminer.connect()
     .then(function (client) {
-      return client.summary();
+      return {
+        version: client.version(),
+        summary: client.summary(),
+        pools: client.pools()
+      };
     })
-    .then(function (summary) {
-      return MinerState.create({
+    .then(function (state) {
+      return MinerState.create(_.merge({
         miner: miner.id,
         error: null,
-        success: true,
-        summary: summary
-      });
+        success: true
+      }, state));
     })
     .catch(function (error) {
       return MinerState.create({
