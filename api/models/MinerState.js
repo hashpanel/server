@@ -4,6 +4,8 @@
  * A snapshot of miner state at a particular point in time
  */
 module.exports = {
+  autoUpdatedAt: false,
+
   attributes: {
     success: {
       type: 'boolean'
@@ -12,7 +14,7 @@ module.exports = {
       type: 'json'
     },
     version: {
-      type: 'string'
+      type: 'json'
     },
     summary: {
       type: 'json'
@@ -21,7 +23,8 @@ module.exports = {
       type: 'json'
     },
     miner: {
-      model: 'Miner'
+      model: 'Miner',
+      index: true
     }
   },
 
@@ -29,7 +32,7 @@ module.exports = {
    * Update the current 'state' property of the associated Miner
    */
   afterCreate: function (state, next) {
-    Miner.find(state.miner)
+    Miner.findOne(state.miner)
       .then(function (miner) {
         miner.state = state;
         return miner.save();
@@ -40,4 +43,3 @@ module.exports = {
       .catch(next);
   }
 };
-

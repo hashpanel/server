@@ -16,7 +16,7 @@ module.exports = {
 
   models: {
     connection: 'localPostgres',
-    migrate: 'drop'
+    migrate: 'alter'
   },
 
   connections: {

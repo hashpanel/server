@@ -15,6 +15,9 @@ module.exports = {
     device: {
       type: 'string'
     },
+    notes: {
+      type: 'text'
+    },
     hashRate: {
       // declared hashrate in GH/s
       type: 'integer'
@@ -26,23 +29,33 @@ module.exports = {
     purchasePrice: {
       type: 'float'
     },
+    monthlyFee: {
+      type: 'float'
+    },
     beginService: {
       type: 'date'
     },
     endService: {
       type: 'date'
     },
-    connection: {
-      model: 'MinerConnection'
+    host: {
+      type: 'string'
+    },
+    port: {
+      type: 'integer',
+      defaultsTo: 4028
     },
     site: {
-      model: 'Site'
+      model: 'Site',
+      index: true
     },
     group: {
-      model: 'Group'
+      model: 'Group',
+      index: true
     },
     owner: {
-      model: 'User'
+      model: 'User',
+      index: true
     },
     state: {
       model: 'MinerState'
@@ -51,10 +64,16 @@ module.exports = {
       collection: 'MinerState',
       via: 'miner'
     },
-    pollInterval: {
+    interval: {
       type: 'integer',
-      defaultsTo: 60
+      defaultsTo: 300
     }
+  },
+
+  afterCreate: function (miner, next) {
+    MinerService.createUpdateInterval(miner);
+
+    next();
   }
 };
 

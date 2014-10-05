@@ -6,23 +6,6 @@
  */
 
 module.exports = {
-
-  /**
-   * Query and return the current miner status
-   */
-  current: function (req, res) {
-    var id = req.params.id;
-
-    Miner
-      .find(req.params)
-      .populate('connection')
-      .then(function (miner) {
-        return MinerService.update(miner);
-      })
-      .then(function (state) {
-        res.json(state);
-      });
-  }
 	
 };
 
