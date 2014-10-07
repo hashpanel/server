@@ -29,8 +29,8 @@ module.exports = {
       adapter: 'sails-redis',
       host: url.parse(process.env.REDIS_URL).hostname,
       port: url.parse(process.env.REDIS_URL).port,
-      //db: url.parse(process.env.REDIS_URL).auth.split(":")[0],
-      //pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
+      db: url.parse(process.env.REDIS_URL).auth.split(":")[0],
+      pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
     }
   },
 
@@ -38,14 +38,14 @@ module.exports = {
     adapter: 'redis',
     host: url.parse(process.env.REDIS_URL).hostname,
     port: url.parse(process.env.REDIS_URL).port,
-    //pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
+    pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
   },
 
   sockets: {
     adapter: 'redis',
     host: url.parse(process.env.REDIS_URL).hostname,
     port: url.parse(process.env.REDIS_URL).port,
-    //pass: url.parse(process.env.REDIS_URL).auth.split(":")[1],
+    pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
   },
   port: 1337,
 
