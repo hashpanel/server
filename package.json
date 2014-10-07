@@ -1,6 +1,6 @@
 {
   "name": "hashware-api",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Backend REST API for hashpanel.io",
   "keywords": [
     "cgminer",
