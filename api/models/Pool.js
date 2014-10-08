@@ -1,8 +1,8 @@
 /**
 * Pool.js
 *
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
+* A bitcoin mining Pool. These will be mainly defined as fixtures, with little
+* practical need for users to define "custom" pools.  
 */
 
 module.exports = {

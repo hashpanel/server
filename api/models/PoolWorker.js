@@ -6,8 +6,11 @@
 */
 
 module.exports = {
-
   attributes: {
+    miner: {
+      model: 'Miner',
+      unique: true
+    },
     name: {
       type: 'string',
       notNull: true
@@ -17,10 +20,20 @@ module.exports = {
     },
     pool: {
       model: 'Pool'
-    },
-    miner: {
-      model: 'Miner'
     }
+  },
+
+  afterUpdate: function (worker, next) {
+    PoolWorker.find(worker.miner)
+      .populate('miner')
+      .populate('pool')
+      .then(function (worker) {
+        return MinerService.updateWorker(worker);
+      })
+      .then(function (result) {
+        next();
+      })
+      .catch(next);
   }
 };
 

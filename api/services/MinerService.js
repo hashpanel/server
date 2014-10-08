@@ -2,6 +2,31 @@ var moment = require('moment');
 var Client = require('cgminer-api').client;
 
 /**
+ * Instruct a miner to mine for a particular pool.
+ * @public
+ */
+function updateWorker (worker) {
+  var cgminer = new Client({
+    host: worker.miner.host,
+    port: worker.miner.port
+  });
+
+  return cgminer.connect()
+    .then(function (client) {
+      // set pool
+    })
+    .then(function (pool) {
+      return MinerState.create({
+        miner: miner.id,
+        event: 'worker change',
+        error: null,
+        success: true
+      });
+    });
+
+}
+
+/**
  * Contact a physical miner and store its state in a MinerState object
  * @public
  */
@@ -27,6 +52,7 @@ function update (miner) {
     .then(function (response) {
       return MinerState.create(_.merge({
         miner: miner.id,
+        event: 'ping',
         error: null,
         success: true,
       }, response));
@@ -35,6 +61,7 @@ function update (miner) {
       sails.log.warn(error);
       return MinerState.create({
         miner: miner.id,
+        event: 'ping',
         error: error,
         success: false
       });
@@ -87,3 +114,4 @@ function updateInterval (miner) {
 exports.update = update;
 exports.updateAll = updateAll;
 exports.createUpdateInterval = createUpdateInterval;
+exports.updateWorker = updateWorker;

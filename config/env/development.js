@@ -50,7 +50,7 @@ module.exports = {
   port: 1337,
 
   log: {
-    level: 'debug'
+    level: 'silly'
   },
 
   permissions: {

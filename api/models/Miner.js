@@ -1,10 +1,8 @@
 /**
 * Miner.js
 *
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
+* A physical bitcoin miner that produces hashes.
 */
-
 module.exports = {
   attributes: {
     name: {
@@ -12,7 +10,7 @@ module.exports = {
       notNull: true
     },
     device: {
-      type: 'string'
+      model: 'MinerDevice'
     },
     notes: {
       type: 'text'
@@ -66,6 +64,9 @@ module.exports = {
     interval: {
       type: 'integer',
       defaultsTo: 300
+    },
+    worker: {
+      model: 'PoolWorker'
     }
   },
 

@@ -22,6 +22,9 @@ module.exports = {
     pools: {
       type: 'json'
     },
+    event: {
+      type: 'string'
+    },
     miner: {
       model: 'Miner',
       index: true
