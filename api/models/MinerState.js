@@ -19,9 +19,6 @@ module.exports = {
     summary: {
       type: 'json'
     },
-    pools: {
-      type: 'json'
-    },
     event: {
       type: 'string'
     },

@@ -6,10 +6,13 @@
 */
 
 module.exports = {
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
+
   attributes: {
     name: {
       type: 'string',
-      notNull: true
+      unique: true
     },
     url: {
       type: 'string',

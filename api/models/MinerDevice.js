@@ -7,16 +7,22 @@
 */
 
 module.exports = {
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
+
   attributes: {
+    name: {
+      type: 'string',
+      unique: true
+    },
     manufacturer: {
       type: 'string'
     },
-    name: {
-      type: 'string'
+    hashRate: {
+      type: 'integer'
     },
     website: {
-      type: 'string',
-      url: true
+      type: 'string'
     },
     miners: {
       collection: 'Miner',

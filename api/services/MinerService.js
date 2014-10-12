@@ -1,26 +1,75 @@
 var moment = require('moment');
 var Client = require('cgminer-api').client;
 
-/**
- * Instruct a miner to mine for a particular pool.
- * @public
- */
 function updateWorker (worker) {
-  var cgminer = new Client({
-    host: worker.miner.host,
-    port: worker.miner.port
-  });
+  var cgminer = getClient(worker.miner);
+
+  return MinerService.removeWorker(worker)
+    .then(function (status) {
+      return MinerService.createWorker(worker);
+    });
+}
+
+function removeWorker (worker) {
+  var cgminer = getClient(worker.miner);
 
   return cgminer.connect()
-    .then(function (client) {
-      // set pool
+    .then(function () {
+      return cgminer.removepool(worker.cgminerId);
     })
-    .then(function (pool) {
+    .then(function (status) {
       return MinerState.create({
         miner: miner.id,
-        event: 'worker change',
+        event: 'removeWorker',
+        success: true
+      });
+    })
+    .catch(function (error) {
+      return MinerState.create({
+        miner: miner.id,
+        event: 'removeWorker',
+        error: error,
+        success: false
+      });
+    });
+}
+
+/**
+ * Add a pool worker to cgminer
+ * @public
+ */
+function createWorker (worker) {
+  var cgminer = getClient(worker.miner);
+
+  return cgminer.connect()
+    .then(function () {
+      return cgminer.addpool([
+        worker.pool.url,
+        worker.name,
+        worker.password
+      ]);
+    })
+    .then(function () {
+      return cgminer.pools();
+    })
+    .then(function (pools) {
+      worker.cgminerId = pools.length;
+      return worker.save();
+    })
+    .then(function (result) {
+      return MinerState.create({
+        miner: worker.miner.id,
+        event: 'createWorker',
         error: null,
         success: true
+      });
+    })
+    .catch(function (error) {
+      return MinerState.create({
+        miner: worker.miner.id,
+        event: 'createWorker',
+        error: error,
+        success: false
       });
     });
 
@@ -36,17 +85,13 @@ function update (miner) {
     return;
   }
 
-  var cgminer = new Client({
-    host: miner.host,
-    port: miner.port
-  });
+  var cgminer = getClient(miner);
 
   return cgminer.connect()
-    .then(function (client) {
+    .then(function () {
       return Promise.props({
-        version: client.version(),
-        summary: client.summary(),
-        pools: client.pools(),
+        version: cgminer.version(),
+        summary: cgminer.summary()
       });
     })
     .then(function (response) {
@@ -111,7 +156,16 @@ function updateInterval (miner) {
   }
 }
 
+function getClient (miner) {
+  return new Client({
+    host: miner.host,
+    port: miner.port
+  });
+}
+
 exports.update = update;
 exports.updateAll = updateAll;
 exports.createUpdateInterval = createUpdateInterval;
 exports.updateWorker = updateWorker;
+exports.createWorker = createWorker;
+exports.removeWorker = removeWorker;

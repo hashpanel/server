@@ -66,7 +66,8 @@ module.exports = {
       defaultsTo: 300
     },
     worker: {
-      model: 'PoolWorker'
+      collection: 'PoolWorker',
+      via: 'miner'
     }
   },
 
@@ -76,4 +77,3 @@ module.exports = {
     next();
   }
 };
-
