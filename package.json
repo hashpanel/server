@@ -2,6 +2,7 @@
   "name": "hashware-api",
   "version": "0.1.12",
   "description": "Backend REST API for hashpanel.io",
+  "main": "server.js",
   "keywords": [
     "cgminer",
     "bitcoin",
