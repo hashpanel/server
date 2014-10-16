@@ -19,6 +19,9 @@ module.exports = {
     summary: {
       type: 'json'
     },
+    devs: {
+      type: 'json'
+    },
     event: {
       type: 'string'
     },
