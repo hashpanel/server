@@ -17,4 +17,15 @@ _.merge(exports, {
    *   return _super.foo(bar);
    * }
    */
+
+  afterCreate: function (user, next) {
+    Group.create({
+        name: 'default',
+        user: user.id
+      })
+      .then(function (group) {
+        next();
+      })
+      .catch(next);
+  }
 });

@@ -71,6 +71,23 @@ module.exports = {
     }
   },
 
+  /**
+   * If no Group is set, use the default group for the owner
+   */
+  afterValidate: function (miner, next) {
+    if (miner.group) return next();
+
+    Group.find({
+        name: 'default',
+        owner: miner.owner
+      })
+      .then(function (group) {
+        miner.group = group.id;
+        next();
+      })
+      .catch(next);
+  },
+
   afterCreate: function (miner, next) {
     MinerService.createUpdateInterval(miner);
 
