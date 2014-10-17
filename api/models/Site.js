@@ -15,19 +15,19 @@ module.exports = {
     location: {
       type: 'string'
     },
-    coordinates: {
-      type: 'json'
-    },
     powerCost: {
       // $ per Whr
-      type: 'float'
+      type: 'float',
+      defaultsTo: 0
     },
     initialCost: {
-      type: 'float'
+      type: 'float',
+      defaultsTo: 0
     },
     monthlyRecurring: {
       // $ per month
-      type: 'float'
+      type: 'float',
+      defaultsTo: 0
     }
 
   }
