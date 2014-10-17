@@ -1,7 +1,8 @@
 {
   "name": "hashware-api",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Backend REST API for hashpanel.io",
+  "main": "server.js",
   "keywords": [
     "cgminer",
     "bitcoin",
@@ -34,7 +35,10 @@
     "dotenv",
     "include-all",
     "lodash",
-    "rc"
+    "moment",
+    "rc",
+    "sails",
+    "sails-redis"
   ],
   "engines": {
     "node": "^0.10.32"

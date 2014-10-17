@@ -91,7 +91,8 @@ function update (miner) {
     .then(function () {
       return Promise.props({
         version: cgminer.version(),
-        summary: cgminer.summary()
+        summary: cgminer.summary(),
+        devs: cgminer.devs()
       });
     })
     .then(function (response) {

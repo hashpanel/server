@@ -42,6 +42,9 @@ module.exports = {
       type: 'integer',
       defaultsTo: 4028
     },
+    internalAddress: {
+      type: 'string'
+    },
     site: {
       model: 'Site',
       index: true
@@ -69,6 +72,23 @@ module.exports = {
       collection: 'PoolWorker',
       via: 'miner'
     }
+  },
+
+  /**
+   * If no Group is set, use the default group for the owner
+   */
+  afterValidate: function (miner, next) {
+    if (miner.group) return next();
+
+    Group.find({
+        name: 'default',
+        owner: miner.owner
+      })
+      .then(function (group) {
+        miner.group = group.id;
+        next();
+      })
+      .catch(next);
   },
 
   afterCreate: function (miner, next) {
