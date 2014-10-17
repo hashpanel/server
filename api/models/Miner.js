@@ -42,6 +42,9 @@ module.exports = {
       type: 'integer',
       defaultsTo: 4028
     },
+    internalAddress: {
+      type: 'string'
+    },
     site: {
       model: 'Site',
       index: true
