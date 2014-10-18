@@ -75,6 +75,22 @@ module.exports = {
   },
 
   /**
+   * Ensure host+port uniqueness per-user
+   */
+  beforeCreate: function (miner, next) {
+    Miner.find({
+        host: miner.host,
+        port: miner.port
+      })
+      .then(function (miners) {
+        if (miners.length === 0) next();
+
+        next(new Error('Miner.Validation.HostPortUniqueness'));
+      })
+      .catch(next);
+  },
+
+  /**
    * If no Group is set, use the default group for the owner
    */
   afterValidate: function (miner, next) {

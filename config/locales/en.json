@@ -1,3 +1,4 @@
 {
+  "Miner.Validation.HostPortUniqueness": "Host and port for Miner must be unique",
   "PoolWorker.InvalidQuota": "PoolWorker quotas for a Miner must add up to 100%"
 }
