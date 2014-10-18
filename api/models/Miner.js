@@ -75,7 +75,8 @@ module.exports = {
   },
 
   /**
-   * Ensure host+port uniqueness per-user
+   * Enforce host+port uniqueness. This ensures that user A cannot claim they
+   * also own a miner that currently belongs to user B.
    */
   beforeCreate: function (miner, next) {
     Miner.find({
