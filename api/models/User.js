@@ -7,7 +7,7 @@ _.merge(exports, _super);
 _.merge(exports, {
 
   afterCreate: function (user, next) {
-    Promise.map([
+    Promise.all([
         Group.create({
           name: 'default',
           owner: user.id

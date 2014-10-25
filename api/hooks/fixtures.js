@@ -10,7 +10,7 @@ module.exports = function (sails) {
             next();
           })
           .catch(function (error) {
-            sails.log.warn(error);
+            //sails.log.warn(error);
             next();
           });
 
