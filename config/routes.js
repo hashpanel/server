@@ -1,3 +1,4 @@
+var _ = require('lodash');
 /**
  * Route Mappings
  * (sails.config.routes)
@@ -43,3 +44,5 @@ module.exports.routes = {
   ***************************************************************************/
 
 };
+
+_.defaults(module.exports.routes, require('sails-auth/config/routes').routes);

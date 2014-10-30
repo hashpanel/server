@@ -9,6 +9,7 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 module.exports.bootstrap = function (next) {
+  sails.services.passport.loadStrategies();
   next();
 };
 
