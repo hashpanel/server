@@ -1,11 +1,10 @@
-// api/models/Passport.js
+// config/permissions.js
 
 var _ = require('lodash');
-var _super = require('sails-auth/api/models/Passport');
+var _super = require('sails-permissions/config/permissions');
 
 _.merge(exports, _super);
 _.merge(exports, {
-  enableOwnership: false
 
   // Extend with custom logic here by adding additional fields, methods, etc.
 

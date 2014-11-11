@@ -10,6 +10,8 @@ module.exports = {
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
+  enableOwnership: false,
+
   attributes: {
     name: {
       type: 'string',

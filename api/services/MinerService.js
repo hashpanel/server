@@ -19,6 +19,7 @@ function removeWorker (worker) {
     })
     .then(function (status) {
       return MinerState.create({
+        owner: worker.miner.owner,
         miner: miner.id,
         event: 'removeWorker',
         success: true
@@ -26,6 +27,7 @@ function removeWorker (worker) {
     })
     .catch(function (error) {
       return MinerState.create({
+        owner: worker.miner.owner,
         miner: miner.id,
         event: 'removeWorker',
         error: error,
@@ -58,6 +60,7 @@ function createWorker (worker) {
     })
     .then(function (result) {
       return MinerState.create({
+        owner: worker.miner.owner,
         miner: worker.miner.id,
         event: 'createWorker',
         error: null,
@@ -66,6 +69,7 @@ function createWorker (worker) {
     })
     .catch(function (error) {
       return MinerState.create({
+        owner: worker.miner.owner,
         miner: worker.miner.id,
         event: 'createWorker',
         error: error,
@@ -84,7 +88,6 @@ function update (miner) {
     sails.log('not updating miner', miner.name, 'for user', miner.owner, '; no miner.host set');
     return;
   }
-
   var cgminer = getClient(miner);
 
   return cgminer.connect()
@@ -97,6 +100,7 @@ function update (miner) {
     })
     .then(function (response) {
       return MinerState.create(_.merge({
+        owner: miner.owner,
         miner: miner.id,
         event: 'ping',
         error: null,
@@ -106,6 +110,7 @@ function update (miner) {
     .catch(function (error) {
       sails.log.warn(error);
       return MinerState.create({
+        owner: miner.owner,
         miner: miner.id,
         event: 'ping',
         error: error,

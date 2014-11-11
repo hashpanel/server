@@ -24,6 +24,7 @@ module.exports.http = {
   middleware: {
     passportInit: require('sails-auth/node_modules/passport').initialize(),
     passportSession: require('sails-auth/node_modules/passport').session(),
+    //permissionPolicy: require('api/policies/PermissionPolicy'),
 
     order: [
       'startRequestTimer',
@@ -34,10 +35,9 @@ module.exports.http = {
       'myRequestLogger',
       'bodyParser',
       'handleBodyParserError',
+      //'permissionPolicy',
       'compress',
       'methodOverride',
-      'poweredBy',
-      '$custom',
       'router',
       'www',
       'favicon',

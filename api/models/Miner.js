@@ -53,10 +53,6 @@ module.exports = {
       model: 'Group',
       index: true
     },
-    owner: {
-      model: 'User',
-      index: true
-    },
     state: {
       model: 'MinerState'
     },
@@ -68,7 +64,7 @@ module.exports = {
       type: 'integer',
       defaultsTo: 300
     },
-    worker: {
+    workers: {
       collection: 'PoolWorker',
       via: 'miner'
     }
@@ -92,7 +88,9 @@ module.exports = {
   },
 
   afterCreate: function (miner, next) {
-    MinerService.createUpdateInterval(miner);
+    if (miner.interval !== -1) {
+      MinerService.createUpdateInterval(miner);
+    }
 
     next();
   }

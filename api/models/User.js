@@ -7,19 +7,23 @@ _.merge(exports, _super);
 _.merge(exports, {
 
   afterCreate: function (user, next) {
-    Promise.all([
-        Group.create({
-          name: 'default',
-          owner: user.id
-        }),
-        Site.create({
-          name: 'default',
-          owner: user.id,
+    _super.afterCreate(user, function (error) {
+      if (error) return next(error);
+
+      Promise.all([
+          Group.create({
+            name: 'default',
+            owner: user.id
+          }),
+          Site.create({
+            name: 'default',
+            owner: user.id,
+          })
+        ])
+        .then(function () {
+          next();
         })
-      ])
-      .then(function () {
-        next();
-      })
-      .catch(next);
+        .catch(next);
+    });
   }
 });
