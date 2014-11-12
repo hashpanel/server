@@ -71,6 +71,23 @@ module.exports = {
   },
 
   /**
+   * Enforce host+port uniqueness. This ensures that user A cannot claim they
+   * also own a miner that currently belongs to user B.
+   */
+  beforeCreate: function (miner, next) {
+    Miner.find({
+        host: miner.host,
+        port: miner.port
+      })
+      .then(function (miners) {
+        if (miners.length === 0) next();
+
+        next(new Error('Miner.Validation.HostPortUniqueness'));
+      })
+      .catch(next);
+  },
+
+  /**
    * If no Group is set, use the default group for the owner
    */
   afterValidate: function (miner, next) {
