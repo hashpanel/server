@@ -23,9 +23,9 @@
     "moment": "^2.8.3",
     "rc": "^0.5.1",
     "sails": "~0.10.5",
-    "sails-auth": "^0.10.5",
-    "sails-backbone": "^1.0.11",
-    "sails-permissions": "0.10.11",
+    "sails-auth": "latest",
+    "sails-backbone": "latest",
+    "sails-permissions": "latest",
     "sails-postgresql": "git://github.com/tjwebb/sails-postgresql",
     "sails-redis": "^0.10.3"
   },
