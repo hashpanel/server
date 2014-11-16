@@ -80,7 +80,7 @@ module.exports = {
         port: miner.port
       })
       .then(function (miners) {
-        if (miners.length === 0) next();
+        if (miners.length === 0) return next();
 
         next(new Error('Miner.Validation.HostPortUniqueness'));
       })

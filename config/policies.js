@@ -23,7 +23,10 @@ module.exports.policies = {
 
   AuthController: {
     '*': true
-  }
+  },
+  BackboneModelController: {
+    index: true
+  },
 
   /***************************************************************************
   *                                                                          *
