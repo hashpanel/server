@@ -57,6 +57,6 @@
   "license": "MIT",
   "devDependencies": {
     "mocha": "^1.21.4",
-    "sails-disk": "~0.10.0"
+    "sails-disk": "^0.10.4"
   }
 }
