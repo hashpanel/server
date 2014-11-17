@@ -49,7 +49,7 @@
     "debug": "node debug app.js",
     "test": "mocha --reporter spec",
     "heroku-update": "heroku repo:purge_cache && heroku repo:rebuild",
-    "postpublish": "git push heroku"
+    "heroku-deploy": "git push heroku"
   },
   "repository": {
     "type": "git",
