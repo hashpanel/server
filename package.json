@@ -26,8 +26,9 @@
     "sails-auth": "latest",
     "sails-backbone": "latest",
     "sails-permissions": "latest",
-    "sails-postgresql": "git://github.com/tjwebb/sails-postgresql",
-    "sails-redis": "^0.10.3"
+    "sails-postgresql": "^0.10",
+    "sails-redis": "^0.10.3",
+    "sails-disk": "^0.10.4"
   },
   "bundledDependencies": [
     "bluebird",
@@ -38,7 +39,8 @@
     "moment",
     "rc",
     "sails",
-    "sails-redis"
+    "sails-redis",
+    "sails-disk"
   ],
   "engines": {
     "node": "^0.10.32"
@@ -57,6 +59,5 @@
   "license": "MIT",
   "devDependencies": {
     "mocha": "^1.21.4",
-    "sails-disk": "^0.10.4"
   }
 }
