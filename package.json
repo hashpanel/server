@@ -25,10 +25,10 @@
     "sails": "~0.10.5",
     "sails-auth": "latest",
     "sails-backbone": "latest",
+    "sails-disk": "^0.10.4",
     "sails-permissions": "latest",
     "sails-postgresql": "^0.10",
-    "sails-redis": "^0.10.3",
-    "sails-disk": "^0.10.4"
+    "sails-redis": "^0.10.3"
   },
   "bundledDependencies": [
     "bluebird",
