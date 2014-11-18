@@ -15,8 +15,7 @@ var url = require('url');
 module.exports = {
 
   models: {
-    //connection: 'localPostgres',
-    connection: 'localDiskDb',
+    connection: process.env.SAILS_CONNECTION || 'localDiskDb',
     migrate: 'alter'
   },
 
