@@ -27,6 +27,12 @@ module.exports.policies = {
   BackboneModelController: {
     index: true
   },
+  MinerDeviceController: {
+    find: true
+  },
+  PoolController: {
+    find: true
+  },
 
   /***************************************************************************
   *                                                                          *
