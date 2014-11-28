@@ -23,6 +23,13 @@ module.exports = {
     hashRate: {
       type: 'integer'
     },
+    algorithm: {
+      type: 'string',
+      enum: [
+        'sha256',
+        'scrypt'
+      ]
+    },
     website: {
       type: 'string'
     },

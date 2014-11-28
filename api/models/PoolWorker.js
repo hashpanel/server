@@ -21,6 +21,9 @@ module.exports = {
     pool: {
       model: 'Pool'
     },
+    currency: {
+      model: 'Currency'
+    },
     quota: {
       type: 'integer',
       defaultsTo: 1,

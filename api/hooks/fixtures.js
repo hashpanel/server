@@ -4,7 +4,8 @@ module.exports = function (sails) {
       sails.after('hook:orm:loaded', function () {
         Promise.all([
             loadDevices(),
-            loadPools()
+            loadPools(),
+            loadCurrencies()
           ])
           .then(function () {
             next();
@@ -32,5 +33,13 @@ function loadPools () {
 
   return Promise.all(_.map(pools, function (pool) {
     return Pool.create(pool);
+  }));
+}
+
+function loadCurrencies () {
+  var currencies = require('../../config/fixtures/currencies');
+
+  return Promise.all(_.map(currencies, function (currency) {
+    return Currency.create(currency);
   }));
 }
