@@ -12,9 +12,6 @@ module.exports = {
    * @param resolution Integer (minutes)
    */
   chart: function (req, res) {
-    sails.log(req.query);
-    sails.log(req.params);
-
     if (_.isNaN(parseInt(req.query.begin))) {
       return res.json(400, { error: '"begin" must be a unix timestamp' });
     }
