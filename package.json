@@ -18,9 +18,10 @@
     "cgminer-api": "latest",
     "connect-redis": "1.4.5",
     "dotenv": "^0.4.0",
+    "hashware-backbone-client": "0.0.5",
     "include-all": "~0.1.3",
     "lodash": "^2.4.1",
-    "moment": "^2.8.3",
+    "moment": "^2.8.4",
     "rc": "^0.5.1",
     "sails": "~0.10.5",
     "sails-auth": "latest",
@@ -28,7 +29,8 @@
     "sails-disk": "^0.10.4",
     "sails-permissions": "latest",
     "sails-postgresql": "^0.10",
-    "sails-redis": "^0.10.3"
+    "sails-redis": "^0.10.3",
+    "twix": "^0.5.1"
   },
   "bundledDependencies": [
     "bluebird",

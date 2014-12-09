@@ -169,9 +169,39 @@ function getClient (miner) {
   });
 }
 
-exports.update = update;
-exports.updateAll = updateAll;
-exports.createUpdateInterval = createUpdateInterval;
-exports.updateWorker = updateWorker;
-exports.createWorker = createWorker;
-exports.removeWorker = removeWorker;
+function getChartData (req) {
+  var begin = new Date(parseInt(req.query.begin));
+  var end = new Date(parseInt(req.query.end));
+  return MinerState.find({
+      where: {
+        createdAt: {
+          '>': begin,
+          '<': end
+        },
+        miner: req.params.id
+      },
+      sort: {
+        createdAt: 1,
+        miner: 1
+      },
+      limit: 1440 // (minutes in a day)
+    })
+    .then(function (history) {
+      return MinerStateService.interpolateHistory({
+        history: history,
+        resolution: parseInt(req.query.resolution),
+        begin: begin,
+        end: end
+      });
+    });
+}
+
+module.exports = {
+  update: update,
+  updateAll: updateAll,
+  createUpdateInterval: createUpdateInterval,
+  updateWorker: updateWorker,
+  createWorker: createWorker,
+  removeWorker: removeWorker,
+  getChartData: getChartData
+};

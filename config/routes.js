@@ -22,6 +22,7 @@ var _ = require('lodash');
  */
 
 module.exports.routes = {
+  'get /api/v1/miner/:id/chart': 'MinerController.chart'
 
   /***************************************************************************
   *                                                                          *
