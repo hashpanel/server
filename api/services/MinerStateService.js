@@ -14,11 +14,7 @@ function interpolateHistory (options) {
   var interpolated = [ ];
   var history = new sails.api.MinerStateCollection(options.history);
 
-  //console.log('history collection:', history.length);
-  //console.log(history.at(0));
-
   for (var keyframe = iterator.next(); iterator.hasNext(); keyframe = iterator.next()) {
-    //console.log('keyframe:', keyframe.toDate());
     var state = history.find(function (state) {
       var diff = moment(state.get('createdAt')).diff(keyframe, 'minutes');
       return diff > 0 && diff < options.resolution;
