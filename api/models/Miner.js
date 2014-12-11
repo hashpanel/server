@@ -12,6 +12,9 @@ module.exports = {
     device: {
       model: 'MinerDevice'
     },
+    proxy: {
+      model: 'MinerProxy'
+    },
     notes: {
       type: 'text'
     },
