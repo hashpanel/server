@@ -33,6 +33,9 @@ module.exports.policies = {
   PoolController: {
     find: true
   },
+  NewsController: {
+    index: true
+  },
 
   /***************************************************************************
   *                                                                          *
