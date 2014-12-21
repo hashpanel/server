@@ -19,11 +19,7 @@ module.exports = {
       type: 'text'
     },
     hashRate: {
-      // declared hashrate in GH/s
-      type: 'integer'
-    },
-    powerUsage: {
-      // declared power consumption in Watts
+      // declared hashrate in MH/s
       type: 'integer'
     },
     purchasePrice: {
@@ -108,7 +104,7 @@ module.exports = {
   },
 
   afterCreate: function (miner, next) {
-    if (miner.interval !== -1) {
+    if (miner.interval > 0) {
       MinerService.createUpdateInterval(miner);
     }
 
