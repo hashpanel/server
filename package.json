@@ -1,6 +1,6 @@
 {
   "name": "hashware-api",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "description": "Backend REST API for hashpanel.io",
   "main": "server.js",
   "keywords": [
