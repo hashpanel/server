@@ -3,6 +3,9 @@ node_js:
   - '0.10'
   - '0.11'
 
+# use docker (http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure)
+sudo: false
+
 notifications:
   email: false
 
