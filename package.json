@@ -18,7 +18,7 @@
     "cgminer-api": "latest",
     "connect-redis": "1.4.5",
     "dotenv": "^0.4.0",
-    "hashware-backbone-client": "0.0.5",
+    "hashware-backbone-client": "latest",
     "include-all": "~0.1.3",
     "lodash": "^2.4.1",
     "moment": "^2.8.4",
@@ -42,7 +42,9 @@
     "rc",
     "sails",
     "sails-redis",
-    "sails-disk"
+    "sails-disk",
+    "sails-postgresql",
+    "twix"
   ],
   "engines": {
     "node": "^0.10.32"
