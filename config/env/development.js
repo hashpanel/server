@@ -20,6 +20,13 @@ module.exports = {
   },
 
   connections: {
+    localCouch: {
+      adapter: 'sails-couchdb',
+      host: url.parse(process.env.COUCH_URL).hostname,
+      port: url.parse(process.env.COUCH_URL).port,
+      username: url.parse(process.env.COUCH_URL).auth.split(":")[0],
+      password: url.parse(process.env.COUCH_URL).auth.split(":")[1]
+    },
     localPostgres: {
       adapter: 'sails-postgresql',
       url: process.env.DATABASE_URL,
