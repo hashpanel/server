@@ -20,7 +20,7 @@ module.exports = {
     },
     hashRate: {
       // declared hashrate in MH/s
-      type: 'integer'
+      type: 'float'
     },
     purchasePrice: {
       type: 'float'

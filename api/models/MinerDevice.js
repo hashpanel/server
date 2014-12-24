@@ -20,7 +20,7 @@ module.exports = {
       type: 'string'
     },
     hashRate: {
-      type: 'integer'
+      type: 'float'
     },
     wattage: {
       type: 'integer'
