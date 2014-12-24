@@ -30,7 +30,7 @@ module.exports = {
     localPostgres: {
       adapter: 'sails-postgresql',
       url: process.env.DATABASE_URL,
-      ssl: true
+      ssl: false
     },
     sessionCache: {
       adapter: 'sails-redis',
