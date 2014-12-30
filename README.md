@@ -14,29 +14,24 @@ $ npm install hashpanel-api
 
 ### 1. Redis
 ```sh
-$ docker run --restart=always --name hashpanel-redis -d sameersbn/redis:latest
-$ redis-cli -h $(docker inspect --format {{.NetworkSettings.IPAddress}} redis)
+$ docker run --restart=always --name hashpanel-redis -P -d sameersbn/redis:latest
 
 ```
 
 ### 2. Postgres
 ```sh
-$ docker run --restart=always --name hashpanel-postgres -e POSTGRES_PASSWORD=postgres -d postgres
-```
-
-#### `docker ps`
-```
-CONTAINER ID        IMAGE                    COMMAND                CREATED             STATUS              PORTS                         NAMES
-1e5501a6d34f        sameersbn/redis:latest   "/start"               7 minutes ago       Up 7 minutes        6379/tcp                      hashpanel-redis      
-1ad9072d4c2a        postgres:latest          "/docker-entrypoint.   3 days ago          Up 5 minutes        0.0.0.0:5432->5432/tcp        hashpanel-postgres
+$ docker run --restart=always --name hashpanel-postgres -P -e POSTGRES_PASSWORD=postgres -d postgres
+$ psql -U postgres -h 0 -p 49154 -c "create user hashpanel with password 'hashpanel'"
+$ psql -U postgres -h 0 -p 49154 -c "create database hashpanel"
+$ psql -U postgres -h 0 -p 49154 -c "alter database hashpanel owner to hashpanel"
 ```
 
 ## Set Environment
 
 ### `.env`
 ```
-REDIS_URL=redis://:@hashpanel-redis.localhost:6379
-DATABASE_URL=postgres://postgres:postgres@hashpanel-postgres.localhost:5432/hashpanel
+REDIS_URL=redis://:@localhost:49153
+DATABASE_URL=postgres://postgres:postgres@localhost:49154/hashpanel
 ```
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
