@@ -41,6 +41,7 @@
     "lodash",
     "moment",
     "rc",
+    "request",
     "sails",
     "sails-redis",
     "sails-disk",
