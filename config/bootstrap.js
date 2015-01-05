@@ -9,6 +9,9 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 module.exports.bootstrap = function (next) {
+  process.on('uncaughtException', function (err) {
+    console.log(err.stack);
+  });
   sails.services.passport.loadStrategies();
   next();
 };
