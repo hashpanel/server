@@ -1,11 +1,15 @@
 module.exports = [
   {
-    name: 'F2Pool (Discus Fish',
-    url: 'stratum+tcp://stratum.f2pool.com:3333'
-  },
-  {
     name: 'ghash.io',
     url: 'stratum+tcp://us1.ghash.io:3333'
+  },
+  {
+    name: 'Antpool',
+    url: 'p2p.antpool.com:3333'
+  },
+  {
+    name: 'F2Pool (Discus Fish)',
+    url: 'stratum+tcp://stratum.f2pool.com:3333'
   },
   {
     name: 'Eligius',

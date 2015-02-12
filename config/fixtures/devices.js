@@ -49,6 +49,20 @@ module.exports = [
     power: 800
   },
   {
+    name: 'Antminer S5',
+    manufacturer: 'Bitmain',
+    website: 'https://bitmaintech.com',
+    hashRate: 1155,
+    power: 590
+  },
+  {
+    name: 'Antminer U3',
+    manufacturer: 'Bitmain',
+    website: 'https://bitmaintech.com',
+    hashRate: 63,
+    power: 65
+  },
+  {
     name: 'SP10',
     manufacturer: 'Spondoolies',
     website: 'http://www.spondoolies-tech.com',
