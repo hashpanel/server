@@ -24,13 +24,14 @@
     "moment": "^2.8.4",
     "rc": "^0.5.1",
     "request": "^2.51.0",
-    "sails": "~0.10.5",
+    "sails": "^0.11",
     "sails-auth": "latest",
     "sails-backbone": "latest",
     "sails-disk": "^0.10.4",
     "sails-permissions": "latest",
     "sails-postgresql": "^0.10",
     "sails-redis": "^0.10.3",
+    "socket.io-redis": "^0.1.4",
     "twix": "^0.5.1"
   },
   "bundledDependencies": [
