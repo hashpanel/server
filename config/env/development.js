@@ -35,7 +35,7 @@ module.exports = {
   },
 
   session: {
-    adapter: 'redis',
+    adapter: 'socket.io-redis',
     host: url.parse(process.env.REDIS_URL).hostname,
     port: url.parse(process.env.REDIS_URL).port,
     pass: url.parse(process.env.REDIS_URL).auth.split(":")[1]
