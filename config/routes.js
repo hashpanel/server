@@ -45,5 +45,3 @@ module.exports.routes = {
   ***************************************************************************/
 
 };
-
-_.defaults(module.exports.routes, require('sails-auth/config/routes').routes);
