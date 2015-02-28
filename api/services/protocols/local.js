@@ -1,7 +1,7 @@
 // api/services/protocols/local.js
 
 var _ = require('lodash');
-var _super = require('sails-auth/api/services/protocols/local');
+var _super = require('sails-permissions/api/services/protocols/local');
 
 function protocols () { }
 

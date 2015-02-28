@@ -1,7 +1,7 @@
 // api/services/protocols/oauth.js
 
 var _ = require('lodash');
-var _super = require('sails-auth/api/services/protocols/oauth');
+var _super = require('sails-permissions/api/services/protocols/oauth');
 
 function protocols () { }
 

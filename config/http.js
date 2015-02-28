@@ -21,6 +21,7 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
+  /*
   middleware: {
     passportInit: require('sails-auth/node_modules/passport').initialize(),
     passportSession: require('sails-auth/node_modules/passport').session(),
@@ -45,6 +46,7 @@ module.exports.http = {
       '500'
     ]
   }
+  */
 
   /****************************************************************************
   *                                                                           *

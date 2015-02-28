@@ -5,8 +5,7 @@
   "generators": {
     "modules": {
       "backbone-api": "sails-backbone",
-      "permissions-api": "sails-permissions",
-      "auth-api": "sails-auth"
+      "permissions-api": "sails-permissions"
     }
   }
 }

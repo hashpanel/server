@@ -1,7 +1,7 @@
 // api/services/protocols/openid.js
 
 var _ = require('lodash');
-var _super = require('sails-auth/api/services/protocols/openid');
+var _super = require('sails-permissions/api/services/protocols/openid');
 
 function protocols () { }
 
