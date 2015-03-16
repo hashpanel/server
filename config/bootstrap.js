@@ -12,7 +12,6 @@ module.exports.bootstrap = function (next) {
   process.on('uncaughtException', function (err) {
     console.log(err.stack);
   });
-  sails.services.passport.loadStrategies();
   next();
 };
 

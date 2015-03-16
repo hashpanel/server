@@ -94,7 +94,7 @@ module.exports = {
 
     Group.find({
         name: 'default',
-        owner: miner.owner
+        createdBy: miner.createdBy
       })
       .then(function (group) {
         miner.group = group.id;

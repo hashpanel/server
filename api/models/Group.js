@@ -15,9 +15,6 @@ module.exports = {
     miners: {
       collection: 'Miner',
       via: 'group'
-    },
-    owner: {
-      model: 'User'
     }
   }
 };

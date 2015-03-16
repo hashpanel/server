@@ -6,15 +6,24 @@ var _super = require('sails-permissions/api/models/User');
 _.merge(exports, _super);
 _.merge(exports, {
 
-  // Extend with custom logic here by adding additional fields, methods, etc.
-
-  /**
-   * For example:
-   *
-   * foo: function (bar) {
-   *   bar.x = 1;
-   *   bar.y = 2;
-   *   return _super.foo(bar);
-   * }
-   */
+  afterCreate: function (user, next) {
+    Promise
+      .all(_.each(_super.afterCreate, Promise.promisify))
+      .then(function (results) {
+        return Promise.all([
+          Group.create({
+            name: 'default',
+            createdBy: user.id
+          }),
+          Site.create({
+            name: 'default',
+            createdBy: user.id,
+          })
+        ]);
+      })
+      .then(function () {
+        next();
+      })
+      .catch(next);
+  }
 });

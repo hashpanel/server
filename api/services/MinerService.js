@@ -19,7 +19,7 @@ function removeWorker (worker) {
     })
     .then(function (status) {
       return MinerState.create({
-        owner: worker.miner.owner,
+        createdBy: worker.miner.createdBy,
         miner: miner.id,
         event: 'removeWorker',
         success: true
@@ -27,7 +27,7 @@ function removeWorker (worker) {
     })
     .catch(function (error) {
       return MinerState.create({
-        owner: worker.miner.owner,
+        createdBy: worker.miner.createdBy,
         miner: miner.id,
         event: 'removeWorker',
         error: error,
@@ -60,7 +60,7 @@ function createWorker (worker) {
     })
     .then(function (result) {
       return MinerState.create({
-        owner: worker.miner.owner,
+        createdBy: worker.miner.createdBy,
         miner: worker.miner.id,
         event: 'createWorker',
         error: null,
@@ -69,7 +69,7 @@ function createWorker (worker) {
     })
     .catch(function (error) {
       return MinerState.create({
-        owner: worker.miner.owner,
+        createdBy: worker.miner.createdBy,
         miner: worker.miner.id,
         event: 'createWorker',
         error: error,
@@ -85,7 +85,7 @@ function createWorker (worker) {
  */
 function update (miner) {
   if (_.isEmpty(miner.host)) {
-    sails.log('not updating miner', miner.name, 'for user', miner.owner, '; no miner.host set');
+    sails.log('not updating miner', miner.name, 'for user', miner.createdBy, '; no miner.host set');
     return;
   }
   var cgminer = getClient(miner);
@@ -100,7 +100,7 @@ function update (miner) {
     })
     .then(function (response) {
       return MinerState.create(_.merge({
-        owner: miner.owner,
+        createdBy: miner.createdBy,
         miner: miner.id,
         event: 'ping',
         error: null,
@@ -110,7 +110,7 @@ function update (miner) {
     .catch(function (error) {
       sails.log.warn(error);
       return MinerState.create({
-        owner: miner.owner,
+        createdBy: miner.createdBy,
         miner: miner.id,
         event: 'ping',
         error: error,
@@ -125,7 +125,7 @@ function update (miner) {
  */
 function updateAll (user) {
   return Miner
-    .find({ owner: user.id })
+    .find({ createdBy: user.id })
     .then(function (miners) {
       return _.map(miners, update);
     });
@@ -135,6 +135,8 @@ function updateAll (user) {
  * @public
  */
 function createUpdateInterval (miner) {
+  sails.log('creating update interval for miner', miner.name, 'interval', miner.interval);
+  updateInterval(miner);
   setInterval(_.partial(updateInterval, miner), miner.interval * 1000);
 }
 
@@ -142,7 +144,7 @@ function createUpdateInterval (miner) {
  * @private
  */
 function updateInterval (miner) {
-  sails.log('user', miner.owner, ': auto-updating state for miner', miner.id, 'interval', miner.interval);
+  sails.log('user', miner.createdBy, ': auto-updating state for miner', miner.id, 'interval', miner.interval);
   
   if (_.isEmpty(miner.state)) {
     return update(miner);
@@ -158,7 +160,7 @@ function updateInterval (miner) {
     return update(miner);
   }
   else {
-    sails.info('miner', miner.id, 'state is current. not updating');
+    sails.log.info('miner', miner.id, 'state is current. not updating');
   }
 }
 

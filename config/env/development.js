@@ -50,11 +50,12 @@ module.exports = {
   port: 1337,
 
   log: {
-    level: 'silly'
+    level: 'debug'
   },
 
   permissions: {
     adminEmail: 'admin@hashpanel.io',
+    adminUsername: 'admin',
     adminPassword: 'admin1234'
   }
 };
