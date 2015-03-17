@@ -6,6 +6,7 @@
  * devices.
  */
 module.exports = {
+  autoCreatedBy: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
 

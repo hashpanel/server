@@ -54,8 +54,20 @@ module.exports = {
   },
 
   permissions: {
-    adminEmail: 'admin@hashpanel.io',
-    adminUsername: 'admin',
+    adminEmail: 'tjwebb@hashpanel.io',
+    adminUsername: 'tjwebb',
     adminPassword: 'admin1234'
+  },
+
+  cgminer: {
+    adapter: require('hashpanel-miner-simulator')
+  },
+
+  'sails-permissions': {
+    _hookTimeout: 120000
+  },
+
+  miner: {
+    _hookTimeout: 120000
   }
 };

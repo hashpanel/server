@@ -1,5 +1,5 @@
 var moment = require('moment');
-var Client = require('cgminer-api').client;
+//var Client = require('cgminer-api').client;
 
 function updateWorker (worker) {
   var cgminer = getClient(worker.miner);
@@ -165,10 +165,8 @@ function updateInterval (miner) {
 }
 
 function getClient (miner) {
-  return new Client({
-    host: miner.host,
-    port: miner.port
-  });
+  var Adapter = sails.config.cgminer.adapter;
+  return new Adapter.client(miner);
 }
 
 function getChartData (req) {

@@ -6,6 +6,7 @@
 */
 
 module.exports = {
+  autoCreatedBy: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
   enableOwnership: false,

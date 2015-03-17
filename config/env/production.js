@@ -56,5 +56,9 @@ module.exports = {
   permissions: {
     adminEmail: 'admin@hashpanel.io',
     adminPassword: process.env.hashpanel_admin_password
+  },
+
+  cgminer: {
+    adapter: require('cgminer-api')
   }
 };

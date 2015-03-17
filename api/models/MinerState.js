@@ -5,6 +5,7 @@
  */
 module.exports = {
   autoUpdatedAt: false,
+  autoCreatedBy: false,
 
   attributes: {
     success: {

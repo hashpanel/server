@@ -65,6 +65,7 @@
   "author": "Travis Webb <me@traviswebb.com>",
   "license": "MIT",
   "devDependencies": {
+    "hashpanel-miner-simulator": "0.0.0",
     "mocha": "^1.21.4"
   }
 }
