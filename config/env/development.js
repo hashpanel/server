@@ -13,6 +13,7 @@
 var url = require('url');
 
 module.exports = {
+  /*
 
   models: {
     connection: process.env.SAILS_CONNECTION || 'localDiskDb',
@@ -70,4 +71,5 @@ module.exports = {
   miner: {
     _hookTimeout: 120000
   }
+  */
 };
